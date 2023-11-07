@@ -6,16 +6,49 @@
 //
 
 import SwiftUI
-
+import CoreLocationUI
 struct Welcome_View_: View {
     @EnvironmentObject var locationManager:
     LocationManager
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            
+            Color(hue: 0.846, saturation: 0.317, brightness: 0.632)
+                .ignoresSafeArea()
+ 
+            VStack{
+                VStack(spacing: 20){
+                Text("Tap Into Weather Me ")
+                        .bold().font(.title)
+                        .padding(EdgeInsets())
+                    Text("Please share your current location to get the weather in your area")
+                        .padding()
+                }
+                .multilineTextAlignment(.center)
+                .padding()
+                
+                LocationButton(.shareCurrentLocation) {
+                    locationManager.requestLocation()
+                }
+                .cornerRadius(30)
+                .symbolVariant(.fill)
+                .foregroundColor(.white)
+                
+                
+            }
+            
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
-#Preview {
+struct WelcomeView_Previews: PreviewProvider{
+static var previews: some View {
     Welcome_View_()
+
+           
+}
+
 }

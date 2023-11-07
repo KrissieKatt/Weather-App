@@ -15,7 +15,8 @@ struct ContentView: View {
           Welcome_View_()
                 .environmentObject(locationManager)
         }
-        .background(Color(hue: 0.83, saturation: 0.776, brightness: 0.998))
+        .background(Color(hue: 0.846, saturation: 0.317, brightness: 0.632))
+        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }
 
